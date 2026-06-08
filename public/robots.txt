@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://diffygames.com/sitemap.xml

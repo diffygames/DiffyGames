@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("/Font/ChakraPetch-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("/Font/ChakraPetch-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("/Font/ChakraPetch-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Block Berthold";
+  src: url("/Font/blockberthold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Block Berthold", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased font-sans;
+  }
+
+  /* Block Berthold for all display/heading/UI elements — uppercase */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Block Berthold", sans-serif;
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.6px currentColor;
+  }
+
+  h4, h5, h6 {
+    -webkit-text-stroke: 0px;
+  }
+
+  button, [role="button"] {
+    font-family: "Block Berthold", sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* Nav links, labels, tags, and small UI text — uppercase Block Berthold */
+  nav a,
+  .font-display {
+    font-family: "Block Berthold", sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* Body paragraphs stay in Chakra Petch, normal casing */
+  p, li, span, input, textarea {
+    font-family: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+    text-transform: none;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-red-600 ring-offset-2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
