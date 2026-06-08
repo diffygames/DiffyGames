@@ -15,6 +15,7 @@ import {
 import type { Session } from "@supabase/supabase-js";
 import Seo from "./components/Seo";
 import { supabase } from "./lib/supabase";
+import { API_URL } from "./constants";
 
 const StackAttackPage = lazy(() => import("./pages/StackAttackPage"));
 const WackABalloonPage = lazy(() => import("./pages/WackABalloonPage"));
@@ -581,7 +582,7 @@ export default function App() {
     setCheckoutMessage("");
 
     try {
-      const res = await fetch("/api/checkout", {
+      const res = await fetch(`${API_URL}/api/checkout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
