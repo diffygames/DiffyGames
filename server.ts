@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import Stripe from "stripe";
 import * as dotenv from "dotenv";
 import * as fs from "fs";
@@ -18,6 +19,7 @@ const PRICE_TO_PRODUCT: Record<string, string> = {
 dotenv.config({ path: ".env.local" });
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
